@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import request from 'superagent';
 
 export default class SearchPage extends Component {
-  state ={
+  state = {
     characterState: {}
   }
   componentDidMount = async() => {
-    const headers = {
-      'Accept': 'application/json',
-      'Authorization': `Bearer ${process.env.ACCESS_TOKEN}` 
-    }
-    const data = await request.get('https://the-one-api.dev/v2/character', { headers: headers });
+    
+    const data = await request
+      .get('https://the-one-api.dev/v2/character')
+      .set('Authorization', 'Bearer ' + process.env.REACT_APP_ACCESS_TOKEN)
+      .accept('application/json');
 
     this.setState({ characterState: data });
     console.log(this.state.characterState);

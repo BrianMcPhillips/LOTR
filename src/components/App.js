@@ -1,13 +1,15 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from 'react';
 import SearchPage from './SearchPage/SearchPage';
+import Header from './Header/Header';
 
-function App() {
-  return (
-    <div >
-      <SearchPage />
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+        <Header />
+        <SearchPage /> 
+      </div>
+    )
+  }
 }
 
-export default App;

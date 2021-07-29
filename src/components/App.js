@@ -22,7 +22,7 @@ export default class App extends Component {
               render={ (routerProps) => <SearchPage {...routerProps} /> }
             />
             <Route 
-              path='/detail'
+              path='/detail/:characterId'
               exact
               render={ (routerProps) => <DetailPage {...routerProps} /> }
             />

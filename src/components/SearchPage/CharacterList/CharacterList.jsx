@@ -6,10 +6,12 @@ export default class CharacterList extends Component {
   render() {
     const { data, next, prev, page, totPages } = this.props;
     return (
-      <div className={styles.list}>
-        {
-          data.map(character => <Character key={character._id} data={character}/>)
-        }
+      <div className={styles.body}>
+        <div className={styles.list}>
+          {
+            data.map(character => <Character key={character._id} data={character}/>)
+          }
+        </div>
         <div className={styles.page}>
           <h4>{page} of {totPages}</h4>
           <div className={styles.buttons}>

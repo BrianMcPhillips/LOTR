@@ -19,6 +19,13 @@ export default class SearchPage extends Component {
       .accept('application/json');
 
     this.setState({ characterState: data.body.docs });
+  }
+  makeRequest = async() => {
+    const data = await request
+      .get(`https://the-one-api.dev/v2/character?${this.state.searchBy}=${this.state.term}&limit=20`)
+      .set('Authorization', 'Bearer ' + process.env.REACT_APP_ACCESS_TOKEN)
+      .accept('application/json');
+    this.setState({ characterState: data.body.docs });
     console.log(this.state.characterState);
   }
   handleSearchBy = (e) => {
@@ -26,6 +33,9 @@ export default class SearchPage extends Component {
   }
   handleOption = (e) => {
     this.setState({ searchBy: e.target.value })
+  }
+  handleClick = (e) => {
+    this.makeRequest()
   }
 
   render() {
@@ -35,7 +45,8 @@ export default class SearchPage extends Component {
         <SearchBar 
           searchBy={this.handleSearchBy}
           hanOption={this.handleOption}
-          options={options}/> 
+          options={options}
+          hanClick={this.handleClick}/> 
         <CharacterList data={characterState}/>
       </div>
     )

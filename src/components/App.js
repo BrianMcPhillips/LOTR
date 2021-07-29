@@ -19,12 +19,12 @@ export default class App extends Component {
             <Route
               path='/'
               exact
-              render={ (routerProps) => <SearchPage {...routerProps} /> }
+              render={(routerProps) => <SearchPage {...routerProps} />}
             />
             <Route 
-              path='/detail'
+              path='/detail/:characterId'
               exact
-              render={ (routerProps) => <DetailPage {...routerProps} /> }
+              render={(routerProps) => <DetailPage {...routerProps} />}
             />
           </Switch>
         </Router>

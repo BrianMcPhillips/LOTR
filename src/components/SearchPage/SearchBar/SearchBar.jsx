@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import styles from './SearchBar.module.css';
 
 export default class SearchBar extends Component {
   render() {
     const { searchBy, options, hanOption, hanClick } = this.props;
     return (
-      <div>
+      <div className={styles.search}>
         <input onChange={searchBy} type='text'></input>
         <select onChange={hanOption}>
           {

@@ -14,7 +14,7 @@ export default class SearchPage extends Component {
 
   componentDidMount = async() => {
     const data = await request
-      .get('https://the-one-api.dev/v2/character')
+      .get('https://the-one-api.dev/v2/character?limit=20')
       .set('Authorization', 'Bearer ' + process.env.REACT_APP_ACCESS_TOKEN)
       .accept('application/json');
 

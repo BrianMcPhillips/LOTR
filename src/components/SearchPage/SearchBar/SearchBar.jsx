@@ -11,9 +11,9 @@ export default class SearchBar extends Component {
       category,
       hanCategory
     } = this.props;
+    
     return (
       <div className={styles.search}>
-        <div className={styles.character}>
           <h2>What would you like to Search</h2>
           <h4>Category</h4>
           <select onChange={hanCategory}>
@@ -28,7 +28,7 @@ export default class SearchBar extends Component {
             }
           </select>
           <button onClick={hanClick}>Search</button>
-        </div>
+
 
       </div>
     )

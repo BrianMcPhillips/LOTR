@@ -24,10 +24,10 @@ export default class SearchPage extends Component {
 
     if(searchBy !== null) {
       await this.setState({
+        category: cateGory,
         searchBy: searchBy,
         term: term,
-        page: page,
-        category: cateGory
+        page: page
       })
     }
     this.makeRequest();
@@ -42,6 +42,13 @@ export default class SearchPage extends Component {
       characterState: data.body.docs,
       totalPage: data.body.pages
     });
+
+    const params = new URLSearchParams(this.props.location.search);
+    params.set('category', this.state.category);
+    params.set('searchBy', this.state.searchBy);
+    params.set('term', this.state.term);
+    params.set('page', this.state.currentPage);
+    this.props.history.push('?' + params.toString());
   }
   handleSearchBy = (e) => {
     this.setState({ term: e.target.value})
